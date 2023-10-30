@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import "../styles/navbar.scss";
-import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [cookies, setCookie] = useCookies(["access_token"]);
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
     setCookie("access_token", JSON.stringify(""));

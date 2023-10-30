@@ -16,11 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-
         <Routes>
           <Route path="/leaderBoard" element={<LeaderBoard />} />
         </Routes>
-
         <Routes>
           <Route path="/signin" element={<SignIn />} />
         </Routes>
