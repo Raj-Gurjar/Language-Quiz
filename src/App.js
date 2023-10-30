@@ -5,7 +5,7 @@ import Home from './components/Home';
 import LeaderBoard from './components/LeaderBoard';
 import Quiz from './components/Quiz';
 import SignIn from './components/SignIn';
-// import SignUp from './components/SignUp';
+import SignUp from './components/SignUp';
 import Levels from './components/Levels';
 
 
@@ -27,9 +27,9 @@ function App() {
         <Routes>
           <Route path="/signIn" element={<SignIn />} />
         </Routes>
-        {/* <Routes>
+        <Routes>
           <Route path="/signUp" element={<SignUp />} />
-        </Routes> */}
+        </Routes>
         <Routes>
           <Route path="/quiz" element={<Quiz />} />
         </Routes>
