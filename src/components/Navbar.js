@@ -35,32 +35,37 @@ const Navbar = () => {
         </div>
         <ul className={`menu ${menuOpen ? "open" : ""}`}>
           <li>
-            <a href="/" className={currentPath === "/" ? "active" : ""}>
+            <Link to="/" className={currentPath === "/" ? "active" : ""}>
               Home
-            </a>
+            </Link>
+          </li>
+          <li>
+            <Link to="/add_que" className={currentPath === "/add_que" ? "active" : ""}>
+              Add Questions
+            </Link>
           </li>
 
           {cookies.access_token?.length > 0 ? (
             <>
               <li>
-                <a
-                  href="/leaderBoard"
+                <Link
+                  to="/leaderBoard"
                   className={currentPath === "/leaderBoard" ? "active" : ""}
                 >
                   LeaderBoard
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/quiz"
+                <Link
+                  to="/quiz"
                   className={currentPath === "/quiz" ? "active" : ""}
                 >
                   Quiz App
-                </a>
+                </Link>
               </li>
               <li onClick={handleLogOut}>
-                <a href="/signin">Log Out</a>
+                <Link to="/signin">Log Out</Link>
               </li>
             </>
           ) : (
