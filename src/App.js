@@ -7,6 +7,7 @@ import Quiz from "./components/Quiz";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Levels from "./components/Levels";
+import AddQue from "./components/AddQue";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        <Routes>
+          <Route path="/add_que" element={<AddQue />} />
         </Routes>
         <Routes>
           <Route path="/quiz" element={<Quiz />} />
