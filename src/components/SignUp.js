@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useCookies } from "react-cookie";
 import "../styles/signin.scss";
+import axios from "axios";
 
-const SignIn = () => {
-  const [cookies, setCookie] = useCookies(["access_token"]);
-
+const SignUp = () => {
   const navigate = useNavigate();
 
+  const [name, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,24 +14,25 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const result = await axios.post("http://localhost:5000/api/user/signin", {
+      const res = await axios.post("http://localhost:5000/api/user/signup", {
+        name,
         email,
         password,
       });
-      console.log(result);
-      setCookie("access_token", JSON.stringify(result.data.token));
-      console.log(JSON.stringify(result.data.token));
-      window.localStorage.setItem("user", JSON.stringify(result.data.user));
-      navigate("/");
+
+      if (res.data.success) {
+        navigate("/signin");
+        alert("Registration Completed! Now login.");
+      }
     } catch (error) {
-      console.error(error);
+      console.log(error.message);
     }
   };
 
   return (
     <section className="sign_cls section_padding">
       <div className="form-container">
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
         <form>
           <input
             type="email"
@@ -42,19 +41,25 @@ const SignIn = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleSubmit}>Sign In</button>
+          <button onClick={handleSubmit}>Sign Up</button>
         </form>
         <p>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
+          Already Signed Up? <Link to="/signin">Sign In</Link>
         </p>
       </div>
     </section>
   );
 };
 
-export default SignIn;
+export default SignUp;

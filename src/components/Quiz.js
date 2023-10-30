@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import quizQuestions from './QuizData'; // Import your quiz data here
-import '../styles/quiz.scss';
+import React, { useState, useEffect } from "react";
+import quizQuestions from "./QuizData"; // Import your quiz data here
+import "../styles/quiz.scss";
 
 const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -46,12 +46,12 @@ const Quiz = () => {
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
-    <div className='quiz_cls section_padding'>
+    <div className="quiz_cls section_padding">
       <h1>This Is The English Lang Quiz</h1>
 
       {!quizCompleted ? (
         <div className="quiz_box">
-          <div className='que'>
+          <div className="que">
             <h2>{currentQuestion.question}</h2>
           </div>
           <div className="options">
@@ -64,7 +64,7 @@ const Quiz = () => {
               </h3>
             ))}
           </div>
-          <div className='timer'>
+          <div className="timer">
             <p>Time Left: {timer} seconds</p>
           </div>
         </div>
@@ -74,10 +74,8 @@ const Quiz = () => {
         </div>
       )}
 
-      <div className='score'>
-        {!quizCompleted ? (
-          <p>Score: {score}</p>
-        ) : null}
+      <div className="score">
+        {!quizCompleted ? <p>Score: {score}</p> : null}
       </div>
     </div>
   );

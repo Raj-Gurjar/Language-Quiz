@@ -1,12 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const LeaderBoard = () => {
-
-    return (
-        <section className="leaderBoard_cls">
-           LeaderBoard
-        </section>
-    );
+  return <section className="leaderBoard_cls">LeaderBoard</section>;
 };
 
 export default LeaderBoard;
