@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import LeaderBoard from './components/LeaderBoard';
 import Quiz from './components/Quiz';
-import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+// import SignUp from './components/SignUp';
+import Levels from './components/Levels';
 
 
 
@@ -23,10 +25,16 @@ function App() {
         </Routes>
 
         <Routes>
-          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/signIn" element={<SignIn />} />
         </Routes>
+        {/* <Routes>
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes> */}
         <Routes>
           <Route path="/quiz" element={<Quiz />} />
+        </Routes>
+        <Routes>
+          <Route path="/levels" element={<Levels />} />
         </Routes>
 
        

@@ -42,8 +42,8 @@ const Navbar = () => {
                     </li>
             
                     <li>
-                        <a href="/leaderBoard" className={currentPath === '/signUp' ? 'active' : ''}>
-                            SignUp
+                        <a href="/signIn" className={currentPath === '/signUp' ? 'active' : ''}>
+                            SignIn
                         </a>
                     </li>
 

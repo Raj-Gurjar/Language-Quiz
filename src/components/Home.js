@@ -14,13 +14,13 @@ const Home = () => {
             <h1>Welcome to our Language Learning Portal</h1>
             <h2>Select a Language:</h2>
             <div className="language-options">
-                <button><Link to="/quiz">English </Link>
+                <button><Link to="/levels">English </Link>
                 </button>
-                <button><Link to="/quiz">Spanish </Link>
+                <button><Link to="/levels">Spanish </Link>
                 </button>
-                <button><Link to="/quiz">German </Link>
+                <button><Link to="/levels">German </Link>
                 </button>
-                <button><Link to="/quiz">Hindi </Link>
+                <button><Link to="/levels">Hindi </Link>
                 </button>
 
             </div>
