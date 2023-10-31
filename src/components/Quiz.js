@@ -65,7 +65,7 @@ const Quiz = () => {
     if (timer > 0 && !quizCompleted) {
       countdown = setInterval(() => {
         setTimer(timer - 1);
-      }, 1000);
+      }, 2000);
     }
 
     if (timer === 0) {

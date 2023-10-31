@@ -7,7 +7,7 @@ const AddQue = () => {
   const [cookies] = useCookies(["access_token"]);
 
   const [formData, setFormData] = useState({
-    language: "Spanish",
+    language: "spanish",
     question: "",
     options: ["", "", "", ""],
     answer: "",
@@ -111,6 +111,7 @@ const AddQue = () => {
         </div>
         <div className="form-group">
           <label>Options</label>
+       
           {formData.options.map((option, index) => (
             <input
               type="text"
