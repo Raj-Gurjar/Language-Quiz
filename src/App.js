@@ -9,6 +9,8 @@ import SignUp from "./components/SignUp";
 import Levels from "./components/Levels";
 import AddQue from "./components/AddQue";
 import SelectLang from "./components/SelectLang";
+import Dashboard from "./components/progress/dashBoard";
+import Result from "./components/result/result";
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
         <Routes>
-          <Route path="/leaderBoard" element={<LeaderBoard />} />
+          <Route path="/leaderBoard" element={<Dashboard />} />
         </Routes>
         <Routes>
           <Route path="/signin" element={<SignIn />} />
@@ -38,6 +40,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/selectLang" element={<SelectLang />} />
+        </Routes>
+        <Routes>
+          <Route path="/result" element={<Result />} />
         </Routes>
       </div>
     </BrowserRouter>
