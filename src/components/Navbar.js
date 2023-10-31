@@ -26,7 +26,7 @@ const Navbar = () => {
     <nav>
       <div className="container1">
         <div className="logo">
-          <a href="/">Logo</a>
+          <Link to="/">QuizLingo</Link>
         </div>
         <div className="menu-toggle" onClick={toggleMenu}>
           <div className={`menu-icon ${menuOpen ? "open" : ""}`}>
@@ -42,7 +42,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/add_que" className={currentPath === "/add_que" ? "active" : ""}>
+            <Link to="/addQue" className={currentPath === "/addQue" ? "active" : ""}>
               Add Questions
             </Link>
           </li>
