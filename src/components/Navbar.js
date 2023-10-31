@@ -40,61 +40,61 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-<<<<<<< HEAD
           <li>
             <Link to="/addQue" className={currentPath === "/addQue" ? "active" : ""}>
               Add Questions
             </Link>
           </li>
-=======
->>>>>>> 19cce4dab5154cf8c78c19ef53943a34f1a209b9
 
-          {cookies.access_token?.length > 0 ? (
-            <>
-              <li>
-                <Link
-                  to="/leaderBoard"
-                  className={currentPath === "/leaderBoard" ? "active" : ""}
-                >
-                  LeaderBoard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/add_que"
-                  className={currentPath === "/add_que" ? "active" : ""}
-                >
-                  Add Questions
-                </Link>
-              </li>
 
-              <li onClick={handleLogOut}>
-                <Link to="/signin">Log Out</Link>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <a
-                  href="/signin"
-                  className={currentPath === "/signin" ? "active" : ""}
-                >
-                  SignIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/signup"
-                  className={currentPath === "/signup" ? "active" : ""}
-                >
-                  SignUp
-                </a>
-              </li>
-            </>
-          )}
-        </ul>
-      </div>
-    </nav>
+          {
+            cookies.access_token?.length > 0 ? (
+              <>
+                <li>
+                  <Link
+                    to="/leaderBoard"
+                    className={currentPath === "/leaderBoard" ? "active" : ""}
+                  >
+                    LeaderBoard
+                  </Link>
+                </li>
+                {/* <li>
+                  <Link
+                    to="/add_que"
+                    className={currentPath === "/add_que" ? "active" : ""}
+                  >
+                    Add Questions
+                  </Link>
+                </li> */}
+
+                <li onClick={handleLogOut}>
+                  <Link to="/signin">Log Out</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <a
+                    href="/signin"
+                    className={currentPath === "/signin" ? "active" : ""}
+                  >
+                    SignIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/signup"
+                    className={currentPath === "/signup" ? "active" : ""}
+                  >
+                    SignUp
+                  </a>
+                </li>
+              </>
+            )
+          }
+        </ul >
+      </div >
+    </nav >
   );
 };
 

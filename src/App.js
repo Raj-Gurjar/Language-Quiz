@@ -8,6 +8,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Levels from "./components/Levels";
 import AddQue from "./components/AddQue";
+import SelectLang from "./components/SelectLang";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/levels" element={<Levels />} />
+        </Routes>
+        <Routes>
+          <Route path="/selectLang" element={<SelectLang />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -44,4 +44,46 @@
       }
     }
   }
+
+  p
+  {
+    margin: 10px;
+    font-size: 15px;
+
+    span
+    {
+      font-weight: 900;
+      text-decoration: underline;
+
+      &:hover
+      {
+        color: #007bff;
+      }
+    }
+  
+  }
+}
+
+.success-popup,
+.error-popup {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.success-popup {
+  background-color: #4CAF50; 
+}
+
+.error-popup {
+  background-color: #FF5733; 
+}
+
+.error-popup p {
+  color: #FF5733;
 }
