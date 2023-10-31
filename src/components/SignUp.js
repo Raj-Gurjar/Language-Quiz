@@ -9,9 +9,21 @@ const SignUp = () => {
   const [name, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignUpSuccessful, setSignUpSuccessful] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Email validation using a regular expression
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+      setErrorMessage("Invalid email format");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 1000); // Remove error message after 1 second
+      return;
+    }
 
     try {
       const res = await axios.post("http://localhost:5000/api/user/signup", {
@@ -21,11 +33,17 @@ const SignUp = () => {
       });
 
       if (res.data.success) {
-        navigate("/signin");
-        alert("Registration Completed! Now login.");
+        setSignUpSuccessful(true);
+        setTimeout(() => {
+          navigate("/signin");
+        }, 2000);
       }
     } catch (error) {
       console.log(error.message);
+      setErrorMessage("Error signing up. Please check your information.");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 1000); // Remove error message after 1 second
     }
   };
 
@@ -42,7 +60,7 @@ const SignUp = () => {
           />
           <input
             type="text"
-            placeholder="name"
+            placeholder="Name"
             value={name}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -53,10 +71,17 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick={handleSubmit}>Sign Up</button>
+          {isSignUpSuccessful && (
+            <div className="success-popup">Sign Up Successful! Now login.</div>
+          )}
+          {errorMessage && (
+            <div className="error-popup">{errorMessage}</div>
+          )}
         </form>
         <p>
-          Already Signed Up? <Link to="/signin">Sign In</Link>
+          Already Signed Up? <span><Link to="/signin">Sign In</Link></span>
         </p>
+
       </div>
     </section>
   );

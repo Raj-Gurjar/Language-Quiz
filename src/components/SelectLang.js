@@ -15,16 +15,16 @@ const SelectLang = () => {
       <h2>Select a Language:</h2>
       <div className="language-options">
         <button>
-          <Link to="/levels?language=english">English </Link>
-        </button>
-        <button>
           <Link to="/levels?language=spanish">Spanish </Link>
         </button>
         <button>
           <Link to="/levels?language=german">German </Link>
         </button>
         <button>
-          <Link to="/levels?language=hindi">Hindi </Link>
+          <Link to="/levels?language=japanese"> Japanes</Link>
+        </button>
+        <button>
+          <Link to="/levels?language=chinese">Chinese </Link>
         </button>
       </div>
     </section>

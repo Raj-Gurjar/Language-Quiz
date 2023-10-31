@@ -6,7 +6,6 @@ import "../styles/signin.scss";
 
 const SignIn = () => {
   const [cookies, setCookie] = useCookies(["access_token"]);
-
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -16,6 +15,16 @@ const SignIn = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Email validation using a regular expression
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(email)) {
+      setErrorMessage("Invalid email format");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000); // Remove error message after 1 second
+      return;
+    }
 
     try {
       const result = await axios.post("http://localhost:5000/api/user/signin", {
@@ -27,14 +36,13 @@ const SignIn = () => {
       setSignInSuccessful(true);
       setTimeout(() => {
         navigate("/selectLang");
-      }, 2000);
+      }, 1500);
     } catch (error) {
       console.error(error);
       setErrorMessage("Error signing in. Please check your credentials.");
-      // Remove error message after 1 second
       setTimeout(() => {
         setErrorMessage("");
-      }, 2000);
+      }, 2000); // Remove error message after 1 second
     }
   };
 
@@ -42,7 +50,6 @@ const SignIn = () => {
     <section className="sign_cls section_padding">
       <div className="form-container">
         <h1>Sign In</h1>
-
         <form>
           <input
             type="email"

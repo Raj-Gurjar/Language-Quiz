@@ -40,7 +40,7 @@ const Home = () => {
             <h3>German </h3>
           </div>
           <div>
-            <h3>Hindi </h3>
+            <h3>Japanes </h3>
           </div>
           <div>
             <h3>Chinese </h3>

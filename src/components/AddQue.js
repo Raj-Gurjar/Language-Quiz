@@ -7,12 +7,15 @@ const AddQue = () => {
   const [cookies] = useCookies(["access_token"]);
 
   const [formData, setFormData] = useState({
-    language: "",
+    language: "Spanish",
     question: "",
     options: ["", "", "", ""],
     answer: "",
     difficulty: "",
   });
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Added success message state
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,39 +29,75 @@ const AddQue = () => {
   };
 
   const handleAddQuestion = async () => {
-    await axios.post(
-      "http://localhost:5000/api/question/createQuestion",
-      {
-        formData,
-      },
-      {
-        headers: { authorization: cookies.access_token },
-      }
-    );
+    if (
+      formData.language === "" ||
+      formData.question === "" ||
+      formData.options.some((option) => option === "") ||
+      formData.answer === "" ||
+      formData.difficulty === ""
+    ) {
+      setErrorMessage("Please fill in all fields.");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+      return;
+    }
 
-    setFormData({
-      language: "",
-      question: "",
-      options: ["", "", "", ""],
-      answer: "",
-      difficulty: "",
-    });
+    try {
+      await axios.post(
+        "http://localhost:5000/api/question/createQuestion",
+        {
+          formData,
+        },
+        {
+          headers: { authorization: cookies.access_token },
+        }
+      );
+
+      setFormData({
+        language: "spanish",
+        question: "",
+        options: ["", "", "", ""],
+        answer: "",
+        difficulty: "",
+      });
+
+      setSuccessMessage("Question submitted successfully"); // Set success message
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 2000);
+
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Error adding the question. Please try again.");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    }
   };
 
   return (
     <section className="addQue_cls section_padding">
       <h2>Add Question</h2>
+
       <form>
         <div className="form-group">
           <label htmlFor="language">Language</label>
-          <input
-            type="text"
+          <select
             id="language"
             name="language"
             value={formData.language}
             onChange={handleInputChange}
             required
-          />
+          >
+            <option value="spanish">spanish</option>
+            <option value="german">german</option>
+            <option value="chinese">chinese</option>
+            <option value="japanese">japanese</option>
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="question">Question</label>
@@ -107,6 +146,8 @@ const AddQue = () => {
         <button type="button" onClick={handleAddQuestion}>
           Add Question
         </button>
+        {errorMessage && <div className="error-popup">{errorMessage}</div>}
+        {successMessage && <div className="success-popup">{successMessage}</div>}
       </form>
     </section>
   );
