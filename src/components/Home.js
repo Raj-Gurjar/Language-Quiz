@@ -4,14 +4,9 @@ import { Link } from "react-router-dom";
 import homeimg from "../media/questioning-concept-with-question-mark (1).jpg";
 
 const Home = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-
-  const handleLanguageSelect = (language) => {
-    setSelectedLanguage(language);
-  };
-
   return (
     <section className="home_cls section_padding">
+<<<<<<< HEAD
       <div className="bkg-effect"></div>
       <h1>Welcome to</h1>
       <div className="web-name">
@@ -26,6 +21,23 @@ const Home = () => {
           <span>G</span>
           <span>O</span>
         </div>
+=======
+      <h1>Welcome to our Language Learning Portal</h1>
+      <h2>Select a Language:</h2>
+      <div className="language-options">
+        <button>
+          <Link to="/levels?language=english">English </Link>
+        </button>
+        <button>
+          <Link to="/levels?language=spanish">Spanish </Link>
+        </button>
+        <button>
+          <Link to="/levels?language=german">German </Link>
+        </button>
+        <button>
+          <Link to="/levels?language=hindi">Hindi </Link>
+        </button>
+>>>>>>> 19cce4dab5154cf8c78c19ef53943a34f1a209b9
       </div>
 
 

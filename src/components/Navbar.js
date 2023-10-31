@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import "../styles/navbar.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [cookies, setCookie] = useCookies(["access_token"]);
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
     setCookie("access_token", JSON.stringify(""));
@@ -41,11 +40,14 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+<<<<<<< HEAD
           <li>
             <Link to="/addQue" className={currentPath === "/addQue" ? "active" : ""}>
               Add Questions
             </Link>
           </li>
+=======
+>>>>>>> 19cce4dab5154cf8c78c19ef53943a34f1a209b9
 
           {cookies.access_token?.length > 0 ? (
             <>
@@ -57,15 +59,15 @@ const Navbar = () => {
                   LeaderBoard
                 </Link>
               </li>
-
               <li>
                 <Link
-                  to="/quiz"
-                  className={currentPath === "/quiz" ? "active" : ""}
+                  to="/add_que"
+                  className={currentPath === "/add_que" ? "active" : ""}
                 >
-                  Quiz App
+                  Add Questions
                 </Link>
               </li>
+
               <li onClick={handleLogOut}>
                 <Link to="/signin">Log Out</Link>
               </li>

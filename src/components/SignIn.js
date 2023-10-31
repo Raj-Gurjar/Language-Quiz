@@ -20,9 +20,7 @@ const SignIn = () => {
         email,
         password,
       });
-      console.log(result);
       setCookie("access_token", JSON.stringify(result.data.token));
-      console.log(JSON.stringify(result.data.token));
       window.localStorage.setItem("user", JSON.stringify(result.data.user));
       navigate("/");
     } catch (error) {
