@@ -58,14 +58,14 @@ const Navbar = () => {
                     LeaderBoard
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link
-                    to="/add_que"
-                    className={currentPath === "/add_que" ? "active" : ""}
+                    to="/selectLang"
+                    className={currentPath === "/selectLang" ? "active" : ""}
                   >
-                    Add Questions
+                    Select lang
                   </Link>
-                </li> */}
+                </li>
 
                 <li onClick={handleLogOut}>
                   <Link to="/signin">Log Out</Link>
@@ -73,13 +73,14 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <li>
+                {/* <li>
                   <a
                     href="/signin"
                     className={currentPath === "/signin" ? "active" : ""}
                   >
                     SignIn
                   </a>
+
                 </li>
                 <li>
                   <a
@@ -88,7 +89,7 @@ const Navbar = () => {
                   >
                     SignUp
                   </a>
-                </li>
+                </li> */}
               </>
             )
           }

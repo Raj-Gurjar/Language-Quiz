@@ -31,7 +31,7 @@ const Quiz = () => {
         }
       );
       if (result.data.success) {
-        navigate("/");
+        navigate("/selectLang");
       }
     } catch (error) {
       console.error("Error fetching quiz questions:", error);

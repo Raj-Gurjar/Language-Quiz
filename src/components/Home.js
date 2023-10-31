@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../styles/home.scss";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
 import homeimg from "../media/questioning-concept-with-question-mark (1).jpg";
 
 const Home = () => {
+  const [cookies, setCookie] = useCookies(["access_token"]);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const userIsLoggedIn = /* Add your user authentication logic here */ false;
 
@@ -45,7 +48,7 @@ const Home = () => {
         </div>
       </div>
 
-      {userIsLoggedIn ? null : (
+      {cookies.access_token?.length > 0 ? null : (
         <div className="sign-opt">
           <h3>Please Sign In/Sign Up to move Further
             <div className="sign-links">
