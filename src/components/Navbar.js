@@ -7,7 +7,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [cookies, setCookie] = useCookies(["access_token"]);
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   const handleLogOut = () => {
     setCookie("access_token", JSON.stringify(""));
@@ -43,59 +43,60 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/addQue" className={currentPath === "/addQue" ? "active" : ""}>
+            <Link
+              to="/addQue"
+              className={currentPath === "/addQue" ? "active" : ""}
+            >
               Add Questions
             </Link>
           </li>
 
-          {
-            cookies.access_token?.length > 0 ? (
-              <>
-                <li>
-                  <Link 
-                    to="/leaderBoard"
-                    className={currentPath === "/leaderBoard" ? "active" : ""}
-                  >
-                    LeaderBoard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/selectLang"
-                    className={currentPath === "/selectLang" ? "active" : ""}
-                  >
-                    Languages
-                  </Link>
-                </li>
+          {cookies.access_token?.length > 0 ? (
+            <>
+              <li>
+                <Link
+                  to="/leaderBoard"
+                  className={currentPath === "/leaderBoard" ? "active" : ""}
+                >
+                  LeaderBoard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/selectLang"
+                  className={currentPath === "/selectLang" ? "active" : ""}
+                >
+                  Languages
+                </Link>
+              </li>
 
-                <li onClick={handleLogOut}>
-                  <Link to="/">Log Out</Link>
-                </li>
-              </>
-            ) : (
-              <>
-                {/* <li>
-                  <a
-                    href="/signin"
-                    className={currentPath === "/signin" ? "active" : ""}
-                  >
-                    SignIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/signup"
-                    className={currentPath === "/signup" ? "active" : ""}
-                  >
-                    SignUp
-                  </a>
-                </li> */}
-              </>
-            )
-          }
-        </ul >
-      </div >
-    </nav >
+              <li onClick={handleLogOut}>
+                <Link to="/">Log Out</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <a
+                  href="/signin"
+                  className={currentPath === "/signin" ? "active" : ""}
+                >
+                  SignIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/signup"
+                  className={currentPath === "/signup" ? "active" : ""}
+                >
+                  SignUp
+                </a>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

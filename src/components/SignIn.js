@@ -16,7 +16,6 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Email validation using a regular expression
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailPattern.test(email)) {
       setErrorMessage("Invalid email format");
@@ -35,7 +34,7 @@ const SignIn = () => {
       window.localStorage.setItem("user", JSON.stringify(result.data.user));
       setSignInSuccessful(true);
       setTimeout(() => {
-        navigate("/selectLang");
+        navigate("/");
       }, 1500);
     } catch (error) {
       console.error(error);
@@ -67,12 +66,13 @@ const SignIn = () => {
           {isSignInSuccessful && (
             <div className="success-popup">Sign In Successful!</div>
           )}
-          {errorMessage && (
-            <div className="error-popup">{errorMessage}</div>
-          )}
+          {errorMessage && <div className="error-popup">{errorMessage}</div>}
         </form>
         <p>
-          Don't have an account? <Link to="/signup"><span>Sign Up</span></Link>
+          Don't have an account?{" "}
+          <Link to="/signup">
+            <span>Sign Up</span>
+          </Link>
         </p>
       </div>
     </section>
