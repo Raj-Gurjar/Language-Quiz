@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import "../styles/navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [cookies, setCookie] = useCookies(["access_token"]);
+  const location = useLocation(); // Get the current location
 
   const handleLogOut = () => {
     setCookie("access_token", JSON.stringify(""));
@@ -18,8 +19,9 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    setCurrentPath(window.location.pathname);
-  }, []);
+    // Update currentPath when the location changes
+    setCurrentPath(location.pathname);
+  }, [location.pathname]); // Listen to changes in location.pathname
 
   return (
     <nav>
@@ -46,12 +48,11 @@ const Navbar = () => {
             </Link>
           </li>
 
-
           {
             cookies.access_token?.length > 0 ? (
               <>
                 <li>
-                  <Link
+                  <Link 
                     to="/leaderBoard"
                     className={currentPath === "/leaderBoard" ? "active" : ""}
                   >
@@ -63,12 +64,12 @@ const Navbar = () => {
                     to="/selectLang"
                     className={currentPath === "/selectLang" ? "active" : ""}
                   >
-                    Select lang
+                    Languages
                   </Link>
                 </li>
 
                 <li onClick={handleLogOut}>
-                  <Link to="/signin">Log Out</Link>
+                  <Link to="/">Log Out</Link>
                 </li>
               </>
             ) : (
@@ -80,7 +81,6 @@ const Navbar = () => {
                   >
                     SignIn
                   </a>
-
                 </li>
                 <li>
                   <a

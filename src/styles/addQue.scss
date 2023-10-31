@@ -1,4 +1,5 @@
 /* styles/addQue.scss */
+@import "_variables.scss";
 
 .addQue_cls {
   
@@ -14,12 +15,15 @@
   }
 
   form {
-    background-color: #8c7e7e;
+    background-color: #F5F5F5;
+    box-shadow: $box-shadow-high;
     border-radius: 5px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
     select
     {
@@ -27,10 +31,12 @@
       font-size: 16px;
       color: black;
       padding: 10px;
+      border-radius: 10px;
 
       option
       {
         color: black;
+        margin: 3px;
       }
     }
   }
@@ -42,14 +48,17 @@
 
     label {
       font-weight: bold;
+      color: black;
     }
 
     input, textarea {
       padding: 10px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 10px;
       font-size: 16px;
       color: black;
+
+
     }
 
     .options {

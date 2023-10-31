@@ -2,7 +2,8 @@
 @import "_variables.scss";
 
 nav {
-  background-color: #62b1bf;
+  background-color: #4fa6b6;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -35,15 +36,17 @@ nav {
       li {
         margin-right: 20px;
 
-        a {
+        a{
           text-decoration: none;
           color: #fff;
           font-size: 17px;
+          font-weight: 700;
         }
 
         .active {
           font-weight: bold; // Highlight active section
-          color: blue;
+          color: rgb(203, 252, 44);
+          transform: scale(1.1);
           text-decoration: underline;
         }
       }
